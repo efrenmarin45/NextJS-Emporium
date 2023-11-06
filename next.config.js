@@ -1,7 +1,10 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
-}
-
-module.exports = nextConfig
+module.exports = {
+    images: {
+      remotePatterns: [
+        {
+          hostname: 'emporiumproductimages.sfo3.cdn.digitaloceanspaces.com',
+        },
+      ],
+      minimumCacheTTL: 60,
+    },
+  }
