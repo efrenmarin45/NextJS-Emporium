@@ -18,7 +18,7 @@ const Nav = () => {
 						<FaShoppingCart className='w-7 h-7 flex-shrink-0' />
 					</div>
 					<p className='text-lg'>
-						{formattedTotalPrice}
+						{formattedTotalPrice}{" "}
 						<span className='text-sm text-gray-500'>({cartCount})</span>
 					</p>
 				</Link>

@@ -13,7 +13,7 @@ const ProductCard = ({ product, index }) => {
         addItem(product);
         toast.success(`${product.name} added`, { id: toastID })
     }
-
+	
 	return (
 		<Link
 			href={`/products/${product.id}`}
