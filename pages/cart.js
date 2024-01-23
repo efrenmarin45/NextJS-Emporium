@@ -64,7 +64,7 @@ export default function CartPage() {
 			{cartCount > 0 && (
 				<div className='mt-12 space-y-4'>
 					{Object.entries(cartDetails).map(([key, product]) => (
-						<CartProduct product={product} />
+						<CartProduct key={key} product={product} />
 					))}
 					<div className='flex flex-col items-end border-t py-4 mt-8'>
 						<p className='text-xl'>
