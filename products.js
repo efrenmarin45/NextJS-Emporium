@@ -1,3 +1,4 @@
+//* Seeded products
 module.exports = [
 	{
 		name: "Bachelor Beard Oil",
