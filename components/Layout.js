@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google'
 import Footer from "./Footer";
 import Nav from "./Nav";
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 
 
@@ -17,6 +18,7 @@ const AppLayout = ({ children }) => {
 				<Nav />
 				{children}
 				<Analytics />
+				<SpeedInsights />
 				<Footer />
 			</main>
 		</div>
