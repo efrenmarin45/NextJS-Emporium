@@ -3,6 +3,7 @@ import Footer from "./Footer";
 import Nav from "./Nav";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import Head from "next/head";
 
 const inter = Inter({
 	subsets: ["latin"],
@@ -12,6 +13,9 @@ const inter = Inter({
 const AppLayout = ({ children }) => {
 	return (
 		<div className={`${inter.variable} font-sans min-h-screen flex flex-col`}>
+			<Head>
+				<title>Efren's Emporium</title>
+			</Head>
 			<main className='flex-grow bg-[#f7f7f7]'>
 				<Nav />
 				{children}
