@@ -21,6 +21,7 @@ export default function CartProduct({ product }) {
 						alt={product.name}
 						fill
 						style={{ objectFit: "cover" }}
+						sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
 					/>
 				</div>
 				<p className='font-semibold text-lg group-hover:underline'>
