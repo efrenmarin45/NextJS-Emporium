@@ -6,6 +6,7 @@ export default async function handler(req, res) {
 		try {
 			const cartDetails = req.body;
 			const inventory = await stripe.products.list({
+				limit: 50,
 				expand: ['data.default_price'],
 			});
 			const products = inventory.data.map((product) => {
@@ -18,6 +19,7 @@ export default async function handler(req, res) {
 					image: product.images[0],
 				};
 			});
+
 			const lineItems = validateCartItems(products, cartDetails);
 			const session = await stripe.checkout.sessions.create({
 				mode: "payment",
@@ -28,7 +30,6 @@ export default async function handler(req, res) {
 			});
 			res.status(200).json(session);
 		} catch (error) {
-			console.log(error);
 			res.status(500).json({ statusCode: 500, message: error.message });
 		}
 	} else {

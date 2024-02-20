@@ -9,7 +9,6 @@ import Image from "next/image";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 
-
 export default function ProductPage(product) {
 	const [count, setCount] = useState(1);
 	const { addItem } = useShoppingCart();
@@ -46,7 +45,7 @@ export default function ProductPage(product) {
 						<p className='text-gray-500'>Price:</p>
 						<p className='text-xl font-semibold'>
 							{formatCurrencyString({
-								value: product.price,
+								value: product?.price,
 								currency: "usd",
 							})}
 						</p>
@@ -72,8 +71,10 @@ export default function ProductPage(product) {
 	);
 }
 
-export const getStaticPaths = async () => {
-	const inventory = await stripe.products.list();
+export async function getStaticPaths(){
+	const inventory = await stripe.products.list({
+		limit: 50,
+	});
 	const paths = inventory.data.map((product) => ({
 		params: { id: product.id },
 	}));
@@ -86,7 +87,9 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async ({ params }) => {
 	const inventory = await stripe.products.list({
 		expand: ["data.default_price"],
+		limit: 50,
 	});
+
 	const products = inventory.data.map((product) => {
 		const price = product.default_price;
 		return {
@@ -97,11 +100,10 @@ export const getStaticProps = async ({ params }) => {
 			image: product.images[0],
 		};
 	});
-	const product = products.find((product) => product.id === params.id);
+	const product = products.find((item) => item.id === params.id);
 
 	return {
 		props: product,
-
-		revalidate: 3600,
+		revalidate: 3500,
 	};
 };

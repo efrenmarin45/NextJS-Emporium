@@ -1,15 +1,13 @@
-import { Inter } from 'next/font/google'
+import { Inter } from "next/font/google";
 import Footer from "./Footer";
 import Nav from "./Nav";
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/next';
-
-
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({
-	subsets: ['latin'],
-	variable: "--font-inter"
-})
+	subsets: ["latin"],
+	variable: "--font-inter",
+});
 
 const AppLayout = ({ children }) => {
 	return (

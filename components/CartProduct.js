@@ -13,7 +13,7 @@ export default function CartProduct({ product }) {
 	return (
 		<div className='flex justify-between space-x-4 hover:shadow-lg hover:border-opacity-50 border border-opacity-0 rounded-md p-4 bg-white'>
 			<Link
-				href={`/products/${product.id}`}
+				href={`/products/${product?.id}`}
 				className='flex items-center space-x-4 group'>
 				<div className='relative w-20 h-20 group-hover:scale-110 transition-transform'>
 					<Image
@@ -45,7 +45,7 @@ export default function CartProduct({ product }) {
 				</div>
 				<p className='font-semibold text-xl ml-16'>
 					<XMarkIcon className='hidden w-4 h-4 text-gray-500 sm:inline-block mr-4 mb-1' />
-					{product.formattedPrice}
+					{product?.formattedPrice}
 				</p>
 				<button
 					onClick={() => removeItem(product.id)}

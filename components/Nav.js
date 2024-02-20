@@ -3,6 +3,7 @@ import Link from "next/link";
 import { FaShoppingCart } from "react-icons/fa";
 import Logo from "./Logo";
 import { useShoppingCart } from "use-shopping-cart";
+import dynamic from "next/dynamic";
 
 const Nav = () => {
 	const { formattedTotalPrice, cartCount } = useShoppingCart();
@@ -17,10 +18,8 @@ const Nav = () => {
 					<div className='relative'>
 						<FaShoppingCart className='w-7 h-7 flex-shrink-0' />
 					</div>
-					<p className='text-lg'>
-						{formattedTotalPrice}{" "}
-						<span className='text-sm text-gray-500'>({cartCount})</span>
-					</p>
+					<p className='text-lg' suppressHydrationWarning>{formattedTotalPrice}</p>
+					<p className='text-sm text-gray-500 ml-2'>({cartCount})</p>
 				</Link>
 			</div>
 		</header>

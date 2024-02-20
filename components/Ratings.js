@@ -1,18 +1,24 @@
-import React from 'react'
+import React from "react";
 import { StarIcon } from "@heroicons/react/24/solid";
 import { StarIcon as EmptyStarIcon } from "@heroicons/react/24/outline";
 
 const Ratings = () => {
-  return (
-    <div className='flex items-center -ml-1'>
-        {Array.from({ length: 4 }).map((_, index) => (
-            <StarIcon key={index} className='w-6 h-6 flex-shrink-0 text-yellow-400' />
-        ))}
-        {Array.from({ length: 1 }).map((_, index) => (
-            <EmptyStarIcon key={index} className='w-6 h-6 flex-shrink-0 text-yellow-400' />
-        ))}
-    </div>
-  )
-}
+	return (
+		<div className='flex items-center -ml-1'>
+			{Array.from({ length: 4 }).map((_, index) => (
+				<StarIcon
+					key={index}
+					className='w-6 h-6 flex-shrink-0 text-yellow-400'
+				/>
+			))}
+			{Array.from({ length: 1 }).map((_, index) => (
+				<EmptyStarIcon
+					key={index}
+					className='w-6 h-6 flex-shrink-0 text-yellow-400'
+				/>
+			))}
+		</div>
+	);
+};
 
-export default Ratings
+export default Ratings;
