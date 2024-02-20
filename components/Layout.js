@@ -14,7 +14,7 @@ const AppLayout = ({ children }) => {
 	return (
 		<div className={`${inter.variable} font-sans min-h-screen flex flex-col`}>
 			<Head>
-				<title>Efren's Emporium</title>
+				<title>Efren&apos;s Emporium</title>
 			</Head>
 			<main className='flex-grow bg-[#f7f7f7]'>
 				<Nav />
